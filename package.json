@@ -1,0 +1,26 @@
+{
+  "name": "fashionista",
+  "version": "1.0.0",
+  "description": "projeto final - academiadev",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server ./public",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jussarasoares/fashionista.git"
+  },
+  "keywords": [
+    "e-commerce"
+  ],
+  "author": "Jussara Soares <jussara.ac.s@hotmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jussarasoares/fashionista/issues"
+  },
+  "homepage": "https://github.com/jussarasoares/fashionista#readme",
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}
