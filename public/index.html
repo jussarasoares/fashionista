@@ -4,9 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fashionista</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-    
+    <div id="root">
+        <div class="app">
+            <header class="header">
+                <div class="app__container">
+                    <div class="header__default">
+                        <a href="/">
+                            <img src="img/logo.svg" class="header__brand" />
+                        </a>
+                        <div class="header__icons">
+                            <button type="button" class="header__icons--search">
+                                <img src="img/search.svg"/>
+                            </button>
+                            <button type="button" class="header__icons--bag">
+                                <img src="img/shoppingbag.svg"/>
+                                <sup class="counter">
+                                    <span class="counter__value">1</span>
+                                </sup>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+    </div>
 </body>
 </html>
