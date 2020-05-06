@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Noto Sans SC';
+  src: url(../font/NotoSansSC-Regular.otf);
+}
+
 *,
 :after,
 :before {
@@ -10,11 +15,11 @@ html {
 }
 
 body {
-  background-color: $background-color;
-  color: $default-font-color;
-  font-family: $default-font-family;
-  font-size: $default-font-size;
-  font-weight: $default-font-weight;
+  background-color: #f9f9f9;
+  color: #212529;
+  font-family: "Noto Sans SC", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
   min-height: 100%;
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
@@ -24,13 +29,18 @@ a,
 a:active,
 a:focus,
 a:hover {
-  color: $default-font-color;
+  color: #212529;
   text-decoration: none;
 }
 
 .app {
     min-height: 100vh;
     position: relative;
+}
+
+.app, .drawer__content {
+  padding-top: 5.5rem;
+  width: 100%;
 }
 
 .header {
@@ -55,12 +65,15 @@ a:hover {
     width: 100%;
 }
 
-.header__default {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
+.header__context, .header__default {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
+  align-items: center;
+  display: flex;
+}
+
+.header__default {
+  justify-content: space-between;
 }
 
 a, a:active, a:focus, a:hover {
@@ -77,7 +90,7 @@ a, a:active, a:focus, a:hover {
   display: flex;
 }
 
-.header__icons--bag, .header__icons--search {
+.header__icons--back, .header__icons--bag, .header__icons--search {
   -webkit-tap-highlight-color: transparent;
   background: transparent;
   border-radius: 100%;
@@ -89,6 +102,9 @@ a, a:active, a:focus, a:hover {
   outline: none;
   padding: 0;
   position: relative;
+}
+
+.header__icons--search {
   margin-right: 1.5rem;
 }
 
@@ -114,4 +130,117 @@ a, a:active, a:focus, a:hover {
 .counter__value {
   height: 1.5rem;
   margin: 0;
+}
+
+.products {
+  padding-top: 1.6rem;
+  padding-bottom: 1.6rem;
+}
+
+
+.header__title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  display: inline-block;
+  padding-top: .7rem;
+  padding-bottom: .7rem;
+  margin: 0 auto;
+  transform: translate3d(calc(-50% - 30px), 0, 0);
+}
+
+.products .header__title {
+  color: #a7a7a7;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.products__grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: -.25rem;
+  margin-right: -.25rem;
+}
+
+.products__box {
+  padding: 1rem .25rem;
+  position: relative;
+  text-align: center;
+  width: 50%;
+}
+
+.products__box .badge {
+  position: absolute;
+  right: 0;
+  margin: 0;
+}
+
+.badge--discount {
+  background-color: #212529;
+  color: #fff;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 400;
+  padding: .2rem;
+}
+
+figure {
+  margin: 0;
+}
+
+.product__image {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.product__image img {
+  width: 100%;
+}
+
+.product__name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: .5rem;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.product__pricing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product__price {
+  font-size: 1.4rem;
+}
+
+.product__price--from {
+  margin-right: 1rem;
+  font-size: 1.2rem;
+  color: #a7a7a7;
+  text-decoration: line-through;
+}
+
+@media screen and (min-width: 1279px) {
+  .app__container {
+    width: 1279px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .products__grid {
+    justify-content: left;
+  }
+  .products__box {
+    width: 25%;
+  }
 }
