@@ -4,23 +4,38 @@
   "description": "projeto final - academiadev",
   "main": "index.js",
   "scripts": {
-    "start": "live-server ./public",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jussarasoares/fashionista.git"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test"
   },
   "keywords": [
     "e-commerce"
   ],
   "author": "Jussara Soares <jussara.ac.s@hotmail.com>",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jussarasoares/fashionista/issues"
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
-  "homepage": "https://github.com/jussarasoares/fashionista#readme",
   "devDependencies": {
-    "live-server": "^1.2.1"
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "react-scripts": "3.4.1"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
