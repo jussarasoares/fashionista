@@ -1,0 +1,100 @@
+.header {
+  backface-visibility: hidden;
+  background-color: #fff;
+  height: 5.5rem;
+  left: 0;
+  position: fixed;
+  top: 0;
+  transform: translateZ(0);
+  width: 100%;
+  z-index: 10;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.02);
+}
+
+.app__container {
+  display: block;
+  margin: 0 auto;
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+  position: relative;
+  width: 100%;
+}
+
+.header__context,
+.header__default {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  align-items: center;
+  display: flex;
+}
+
+.header__default {
+  justify-content: space-between;
+}
+
+.header__logo {
+  height: 2rem;
+}
+
+.header__icons {
+  align-items: center;
+  display: flex;
+}
+
+.header__icons--back,
+.header__icons--bag,
+.header__icons--search {
+  -webkit-tap-highlight-color: transparent;
+  background: transparent;
+  border-radius: 100%;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+  font-size: 2rem;
+  line-height: 0;
+  outline: none;
+  padding: 0;
+  position: relative;
+}
+
+.header__icons--back {
+  margin-right: auto;
+  font-size: 2.5rem;
+}
+
+.header__icons--search {
+  margin-right: 1.5rem;
+}
+
+.header__icons--back img {
+  width: 25px;
+}
+
+.header__icons--bag img,
+.header__icons--search img {
+  width: 20px;
+}
+
+.counter {
+  overflow: hidden;
+  position: absolute;
+  right: -0.7rem;
+  top: 0;
+  height: 1.7rem;
+  border-radius: 50%;
+  width: 1.7rem;
+  background: #cf3838;
+  color: #fff;
+  line-height: 1.7rem;
+  text-align: center;
+  padding: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.counter__value {
+  height: 1.5rem;
+  margin: 0;
+}
