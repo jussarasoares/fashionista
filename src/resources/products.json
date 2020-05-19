@@ -1,0 +1,128 @@
+[
+  {
+    "name": "VESTIDO TRANSPASSE BOW",
+    "image": "https://d3l7rqep7l31az.cloudfront.net/images/products/20002605_615_catalog_1.jpg?1460136912",
+    "price": "199,90"
+  },
+  {
+    "name": "REGATA ALCINHA FOLK",
+    "image": "https://d3l7rqep7l31az.cloudfront.net/images/products/20002570_002_catalog_1.jpg?1459948578",
+    "price": "99,90"
+  },
+  {
+    "name": "TOP CROPPED SUEDE",
+    "image": "https://d3l7rqep7l31az.cloudfront.net/images/products/20002575_027_catalog_1.jpg?1459537946",
+    "price": "129,90"
+  },
+  {
+    "name": "BATA DECOTE FLUID",
+    "image": "https://d3l7rqep7l31az.cloudfront.net/images/products/20002581_614_catalog_1.jpg?1459536611",
+    "price": "149,90"
+  },
+  {
+    "name": "T-SHIRT LEATHER DULL",
+    "image": "https://via.placeholder.com/470x594/FFFFFF/?text=Imagem+Indisponível",
+    "price": "139,90",
+    "discount": "119,90",
+    "percentDiscount": "12"
+  },
+  {
+    "name": "CAMISA SUEDE SPAN",
+    "image": "https://d3l7rqep7l31az.cloudfront.net/images/products/20002584_035_catalog_1.jpg?1459947139",
+    "price": "189,90"
+  },
+  {
+    "name": "CALÇA CLASSIC PRINT",
+    "image": "https://d3l7rqep7l31az.cloudfront.net/images/products/20002634_613_catalog_1.jpg?1459548109",
+    "price": "159,90"
+  },
+  {
+    "name": "REGATA ALCINHA FOLK",
+    "image": "https://d3l7rqep7l31az.cloudfront.net/images/products/20002570_029_catalog_1.jpg?1459948578",
+    "price": "99,90"
+  },
+  {
+    "name": "MACAQUINHO ALFAIATARIA PEACE",
+    "image": "https://d3l7rqep7l31az.cloudfront.net/images/products/20002612_612_catalog_1.jpg?1459531023",
+    "price": "149,90"
+  },
+  {
+    "name": "BOLSA FLAP TRIANGLE",
+    "image": "https://d3l7rqep7l31az.cloudfront.net/images/products/20002945_027_catalog_1.jpg?1459540966",
+    "price": "199,90",
+    "discount": "159,90",
+    "percentDiscount": "25"
+  },
+  {
+    "name": "VESTIDO LONGO FLOAT",
+    "image": "https://d3l7rqep7l31az.cloudfront.net/images/products/20002606_615_catalog_1.jpg?1459515279",
+    "price": "219,90"
+  },
+  {
+    "name": "BATA DECOTE FLUID",
+    "image": "https://d3l7rqep7l31az.cloudfront.net/images/products/20002581_611_catalog_1.jpg?1459536611",
+    "price": "149,90"
+  },
+  {
+    "name": "VESTIDO FRANZIDO RECORTES",
+    "image": "https://d3l7rqep7l31az.cloudfront.net/images/products/20001609_002_catalog_1.jpg?",
+    "price": "139,90",
+    "discount": "69,90",
+    "percentDiscount": "50"
+  },
+  {
+    "name": "CALÇA COMFORT TASSEL",
+    "image": "https://d3l7rqep7l31az.cloudfront.net/images/products/20001786_594_catalog_1.jpg?1449159646",
+    "price": "139,90",
+    "discount": "84,90",
+    "percentDiscount": "39"
+  },
+  {
+    "name": "SAIA DENIM BOTÕES",
+    "image": "https://d3l7rqep7l31az.cloudfront.net/images/products/20001695_063_catalog_1.jpg?",
+    "price": "139,90",
+    "discount": "69,90",
+    "percentDiscount": "39"
+  },
+  {
+    "name": "BLUSA LAÇO ISTAMBUL",
+    "image": "https://d3l7rqep7l31az.cloudfront.net/images/products/20002600_293_catalog_1.jpg?1460416037",
+    "price": "149,90"
+  },
+  {
+    "name": "BLUSA RIB STRIPES",
+    "image": "https://d3l7rqep7l31az.cloudfront.net/images/products/20002829_006_catalog_1.jpg?1459550820",
+    "price": "149,90"
+  },
+  {
+    "name": "CASACO WHITE FUR",
+    "image": "https://d3l7rqep7l31az.cloudfront.net/images/products/20002648_029_catalog_1.jpg?1459552552",
+    "price": "239,90"
+  },
+  {
+    "name": "VESTIDO CURTO FESTIVAL",
+    "image": "https://d3l7rqep7l31az.cloudfront.net/images/products/20001684_585_catalog_1.jpg?",
+    "price": "129,90",
+    "discount": "59,90",
+    "percentDiscount": "54"
+  },
+  {
+    "name": "ÓCULOS DE SOL BOLD",
+    "image": "https://d3l7rqep7l31az.cloudfront.net/images/products/20001882_008_catalog_1.jpg?",
+    "price": "109,90",
+    "discount": "49,90",
+    "percentDiscount": "55"
+  },
+  {
+    "name": "ÓCULOS DE SOL AVIADOR VINTAGE",
+    "image": "https://d3l7rqep7l31az.cloudfront.net/images/products/20001883_019_catalog_1.jpg?",
+    "price": "109,90",
+    "discount": "49,90",
+    "percentDiscount": "55"
+  },
+  {
+    "name": "PULSEIRA STYLISH",
+    "image": "https://d3l7rqep7l31az.cloudfront.net/images/products/20001913_009_catalog_1.jpg?",
+    "price": "29,90"
+  }
+]
