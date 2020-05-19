@@ -115,7 +115,7 @@
   border-radius: 0.5rem;
 }
 
-.product__add-to-bag {
+.product__add-to-cart {
   background-color: #212529;
   border-radius: 0.5rem;
   border: none;
@@ -161,7 +161,7 @@ img {
     padding: 2rem 0;
     width: auto;
   }
-  .product__add-to-bag {
+  .product__add-to-cart {
     width: 50%;
   }
 }
