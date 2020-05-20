@@ -3,6 +3,7 @@ import Topbar from "./components/Topbar";
 import Catalog from "./components/Catalog";
 import Product from "./components/Product";
 import Bag from "./components/Bag";
+import Search from "./components/Search";
 
 import "./assets/css/normalize.css";
 import "./app.css";
@@ -14,6 +15,7 @@ function App() {
       {/* <Catalog /> */}
       <Product />
       <Bag />
+      <Search />
     </div>
   );
 }
