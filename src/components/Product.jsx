@@ -1,36 +1,73 @@
-import React from "react";
-import "./product.css";
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+
+import { getProduct } from '../resources/products';
+
+import placeholder from '../assets/img/placeholder.png';
+import './product.css';
 
 function Product() {
+  const [product, setProduct] = useState({});
+  const [selectedSize, setSelectedSize] = useState('');
+  const { productname } = useParams();
+
+  useEffect(() => {
+    const data = getProduct(productname);
+    console.log('produto aqui ====>>>>', data);
+    setProduct(data);
+  }, [productname]);
+
   return (
     <div className="single-product">
       <figure className="product__image">
+        {product.discount_percentage && (
+          <span className="badge badge--discount">
+            -{product.discount_percentage}
+          </span>
+        )}
         <img
-          src="https://d3l7rqep7l31az.cloudfront.net/images/products/20002605_615_catalog_1.jpg?1460136912"
-          alt="Produto "
-          title=""
+          src={product.image || placeholder}
+          alt={`Produto ${product.name}`}
+          title={product.name}
         />
       </figure>
       <div className="product__content">
-        <h3 className="product__name">VESTIDO TRANSPASSE BOW</h3>
+        <h3 className="product__name">{product.name}</h3>
         <div className="product__pricing">
-          <span className="product__price product__price--to">R$ 199,90</span>
+          {!product.discount_percentage && (
+            <span className="product__price product__price--to">
+              {product.regular_price}
+            </span>
+          )}
+          {product.discount_percentage && (
+            <>
+              <span className="product__price product__price--from">
+                {product.regular_price}
+              </span>
+              <span className="product__price product__price--to">
+                {product.actual_price}
+              </span>
+            </>
+          )}
           <span className="product__price product__price--installments">
-            em até 3x R$ 66,63
+            em até {product.installments}
           </span>
         </div>
         <div className="product__sizes">
           <p className="product__sizes__title">Escolha o tamanho</p>
           <div className="product__btn-group">
-            <button type="button" className="product__filter">
-              P
-            </button>
-            <button type="button" className="product__filter">
-              M
-            </button>
-            <button type="button" className="product__filter">
-              G
-            </button>
+            {product.sizes &&
+              product.sizes.map((size, index) => (
+                <div key={index}>
+                  {size.available && (
+                    <ButtonSize
+                      label={size.size}
+                      selected={selectedSize}
+                      onClick={() => setSelectedSize(size.size)}
+                    />
+                  )}
+                </div>
+              ))}
           </div>
         </div>
         <div className="product__actions">
@@ -40,6 +77,19 @@ function Product() {
         </div>
       </div>
     </div>
+  );
+}
+
+function ButtonSize({ label, selected, onClick }) {
+  const buttonClass =
+    selected === label
+      ? 'product__filter product__filter--selected'
+      : 'product__filter';
+
+  return (
+    <button type="button" className={buttonClass} onClick={onClick}>
+      {label}
+    </button>
   );
 }
 
