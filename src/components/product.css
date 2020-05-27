@@ -58,6 +58,11 @@
   padding-bottom: 6.5rem;
 }
 
+.single-product .badge {
+  font-size: 1.5rem;
+  position: absolute;
+}
+
 .product__content {
   padding-left: 1.6rem;
   padding-right: 1.6rem;
@@ -115,6 +120,12 @@
   border-radius: 0.5rem;
 }
 
+.product__filter--selected {
+  background-color: #212529;
+  color: #fff;
+  border-color: #212529;
+}
+
 .product__add-to-cart {
   background-color: #212529;
   border-radius: 0.5rem;
@@ -163,5 +174,12 @@ img {
   }
   .product__add-to-cart {
     width: 50%;
+  }
+  .single-product .badge {
+    right: 0;
+    top: 0;
+    left: auto;
+    bottom: auto;
+    margin: 0;
   }
 }

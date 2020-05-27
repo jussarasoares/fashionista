@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
-import "./catalog.css";
+import React, { useEffect, useState } from 'react';
+import './catalog.css';
 
-import { getProducts } from "../resources/products";
+import { getProducts } from '../resources/products';
+import placeholder from '../assets/img/placeholder.png';
 
 function Catalog() {
   const [products, setProducts] = useState([]);
@@ -9,8 +10,8 @@ function Catalog() {
   useEffect(() => {
     getProducts().then((data) => {
       setProducts(data);
-    })
-  }, [])
+    });
+  }, []);
 
   return (
     <section className="products">
@@ -27,7 +28,7 @@ function Catalog() {
                     </span>
                   )}
                   <img
-                    src={product.image}
+                    src={product.image || placeholder}
                     alt={`Produto ${product.name}`}
                     title={product.name}
                     className="product__placeholder"
@@ -37,16 +38,16 @@ function Catalog() {
                 <div className="product__pricing">
                   {!product.discount_percentage && (
                     <span className="product__price product__price--to">
-                      R$ {product.regular_price}
+                      {product.regular_price}
                     </span>
                   )}
                   {product.discount_percentage && (
                     <>
                       <span className="product__price product__price--from">
-                        R$ {product.regular_price}
+                        {product.regular_price}
                       </span>
                       <span className="product__price product__price--to">
-                        R$ {product.actual_price}
+                        {product.actual_price}
                       </span>
                     </>
                   )}

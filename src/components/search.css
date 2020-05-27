@@ -366,18 +366,6 @@ figure {
   align-items: center;
 }
 
-.product__filter {
-  position: relative;
-  cursor: pointer;
-  font-weight: 600;
-  padding: 0.8rem 1rem;
-  border: 0.1rem solid #dfdfdf;
-  margin-right: 0.8rem;
-  background: transparent;
-  outline: none;
-  border-radius: 0.5rem;
-}
-
 .product__add-to-bag {
   background-color: #212529;
   border-radius: 0.5rem;
@@ -422,7 +410,7 @@ img {
   backface-visibility: visible;
   background: radial-gradient(ellipse at center, #7a7a7a 0, #000 100%);
   bottom: 0;
-  content: "";
+  content: '';
   height: 100vh;
   opacity: 0.75;
   pointer-events: all;
