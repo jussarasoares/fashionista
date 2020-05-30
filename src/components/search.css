@@ -395,6 +395,21 @@ img {
   border-style: none;
 }
 
+.cart__empty {
+  position: absolute;
+  top: 50%;
+  margin: 0 auto;
+  color: #a7a7a7;
+  transform: translate3d(0, -50%, 0);
+}
+
+.cart__empty,
+.cart__subtotal {
+  text-align: center;
+  left: 0;
+  width: 100%;
+}
+
 .drawer.drawer--is-visible {
   transform: translateZ(0);
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
@@ -410,7 +425,7 @@ img {
   backface-visibility: visible;
   background: radial-gradient(ellipse at center, #7a7a7a 0, #000 100%);
   bottom: 0;
-  content: '';
+  content: "";
   height: 100vh;
   opacity: 0.75;
   pointer-events: all;
@@ -424,6 +439,10 @@ img {
 .search {
   padding-bottom: 5rem;
   width: 100%;
+}
+
+.search a {
+  display: block;
 }
 
 .search__form {
@@ -455,10 +474,6 @@ img {
   color: #a7a7a7;
   font-size: 1.4rem;
   font-weight: 400;
-}
-
-.search a {
-  display: block;
 }
 
 @media screen and (min-width: 1279px) {
