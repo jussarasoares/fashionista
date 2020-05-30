@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-import { getProduct } from '../resources/products';
+import { getProduct } from "../resources/products";
 
-import placeholder from '../assets/img/placeholder.png';
-import './product.css';
+import placeholder from "../assets/img/placeholder.png";
+import "./product.css";
 
 function Product() {
   const [product, setProduct] = useState({});
-  const [selectedSize, setSelectedSize] = useState('');
+  const [selectedSize, setSelectedSize] = useState("");
   const { productname } = useParams();
 
   useEffect(() => {
     const data = getProduct(productname);
-    console.log('produto aqui ====>>>>', data);
     setProduct(data);
   }, [productname]);
 
@@ -83,8 +82,8 @@ function Product() {
 function ButtonSize({ label, selected, onClick }) {
   const buttonClass =
     selected === label
-      ? 'product__filter product__filter--selected'
-      : 'product__filter';
+      ? "product__filter product__filter--selected"
+      : "product__filter";
 
   return (
     <button type="button" className={buttonClass} onClick={onClick}>

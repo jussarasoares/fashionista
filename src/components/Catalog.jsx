@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import './catalog.css';
+import React, { useEffect, useState } from "react";
+import "./catalog.css";
 
-import { getProducts } from '../resources/products';
-import placeholder from '../assets/img/placeholder.png';
+import { getProducts } from "../resources/products";
+import placeholder from "../assets/img/placeholder.png";
+import { Link } from "react-router-dom";
 
 function Catalog() {
   const [products, setProducts] = useState([]);
@@ -20,7 +21,7 @@ function Catalog() {
         <div className="products__grid">
           {products.map((product, index) => (
             <div className="products__box" key={index}>
-              <a href={`/produto/${product.name.toLowerCase()}`}>
+              <Link to={`/produto/${product.name.toLowerCase()}`}>
                 <figure className="product__image">
                   {product.discount_percentage && (
                     <span className="badge badge--discount">
@@ -52,7 +53,7 @@ function Catalog() {
                     </>
                   )}
                 </div>
-              </a>
+              </Link>
             </div>
           ))}
         </div>
