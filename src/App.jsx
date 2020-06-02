@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 import Topbar from "./components/Topbar";
 import Catalog from "./components/Catalog";
@@ -10,10 +10,16 @@ import "./assets/css/normalize.css";
 import "./app.css";
 
 function App() {
+  const [toggleBag, setToggleBag] = useState(false);
+  const [toggleSearch, setToggleSearch] = useState(false);
+
+  const toggleBagHandle = () => setToggleBag(!toggleBag);
+  const toggleSearchHandle = () => setToggleSearch(!toggleSearch);
+
   return (
     <div className="app">
       <BrowserRouter>
-        <Topbar />
+        <Topbar toggleBag={toggleBagHandle} toggleSearch={toggleSearchHandle} />
         <Switch>
           <Route exact path="/">
             <Catalog />
@@ -22,8 +28,8 @@ function App() {
             <Product />
           </Route>
         </Switch>
-        <Bag />
-        <Search />
+        {toggleBag && <Bag toggle={toggleBagHandle} />}
+        {toggleSearch && <Search toggle={toggleSearchHandle} />}
       </BrowserRouter>
     </div>
   );

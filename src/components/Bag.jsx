@@ -1,15 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
+
+import { ReactComponent as BackImg } from "../assets/img/back.svg";
+import { ReactComponent as MinorImg } from "../assets/img/minor.svg";
+import { ReactComponent as PlusImg } from "../assets/img/plus.svg";
 import "./bag.css";
 
-function Bag() {
+function Bag({ toggle }) {
+  const [product, setProduct] = useState({});
+
   return (
     <div className="drawer drawer--is-visible">
       <header className="header">
         <div className="app__container">
           <div className="header__context">
             <div className="header__icons">
-              <button type="button" className="header__icons--back">
-                <img src="./img/back.svg" />
+              <button
+                type="button"
+                className="header__icons--back"
+                onClick={toggle}
+              >
+                <BackImg />
               </button>
             </div>
             <div className="header__title">Sacola (1)</div>
@@ -29,23 +39,27 @@ function Bag() {
                   />
                 </figure>
                 <div className="product__list__info">
-                  <p className="product__list__name">VESTIDO TRANSPASSE BOW</p>
+                  <p className="product__list__name">{product.name}</p>
                   <p className="product__list__size">
-                    <span>Tam.: G</span>
+                    <span>Tam.: {product.size}</span>
                   </p>
                   <div className="product__list__quantity">
                     <button type="button" className="cart__icons">
-                      <img src="./img/minor.svg" />
+                      <MinorImg />
                     </button>
                     <div className="product__list__input">1</div>
                     <button type="button" className="cart__icons">
-                      <img src="./img/plus.svg" />
+                      <PlusImg />
                     </button>
                   </div>
                 </div>
                 <div className="product__list__pricing">
-                  <div className="product__list__current">R$ 199,90</div>
-                  <div className="product__list__installments">3x R$ 66,63</div>
+                  <div className="product__list__current">
+                    {product.regular_price}
+                  </div>
+                  <div className="product__list__installments">
+                    {product.installments}
+                  </div>
                 </div>
               </div>
               <div className="product__row">

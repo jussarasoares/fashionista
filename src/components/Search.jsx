@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 
 import { findProductsByName } from "../resources/products";
-import "./search.css";
 import { Link } from "react-router-dom";
+import { ReactComponent as BackImg } from "../assets/img/back.svg";
+import "./search.css";
 
-function Search() {
+function Search({ toggle }) {
   const [products, setProducts] = useState([]);
   const searchHandle = (value) => {
     if (value.length < 3) {
@@ -21,8 +22,12 @@ function Search() {
         <div className="app__container">
           <div className="header__context">
             <div className="header__icons">
-              <button type="button" className="header__icons--back">
-                <img src="./img/back.svg" />
+              <button
+                type="button"
+                className="header__icons--back"
+                onClick={toggle}
+              >
+                <BackImg />
               </button>
             </div>
             <div className="header__title">Buscar Produtos</div>
