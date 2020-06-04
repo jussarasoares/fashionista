@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import Topbar from "./components/Topbar";
 import Catalog from "./components/Catalog";
 import Product from "./components/Product";
@@ -7,11 +8,13 @@ import Bag from "./components/Bag";
 import Search from "./components/Search";
 
 import "./assets/css/normalize.css";
+import "react-toastify/dist/ReactToastify.css";
 import "./app.css";
 
 function App() {
   const [toggleBag, setToggleBag] = useState(false);
   const [toggleSearch, setToggleSearch] = useState(false);
+  const [bag, dispatch] = useReducer(reducer, []);
 
   const toggleBagHandle = () => setToggleBag(!toggleBag);
   const toggleSearchHandle = () => setToggleSearch(!toggleSearch);
@@ -19,20 +22,44 @@ function App() {
   return (
     <div className="app">
       <BrowserRouter>
-        <Topbar toggleBag={toggleBagHandle} toggleSearch={toggleSearchHandle} />
+        <Topbar
+          numberBag={bag.length}
+          toggleBag={toggleBagHandle}
+          toggleSearch={toggleSearchHandle}
+        />
         <Switch>
           <Route exact path="/">
             <Catalog />
           </Route>
           <Route path="/produto/:productname">
-            <Product />
+            <Product addBag={dispatch} />
           </Route>
         </Switch>
-        {toggleBag && <Bag toggle={toggleBagHandle} />}
+        {toggleBag && <Bag items={bag} toggle={toggleBagHandle} />}
         {toggleSearch && <Search toggle={toggleSearchHandle} />}
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </BrowserRouter>
     </div>
   );
+}
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "add":
+      return [...state, action.payload];
+    default:
+      throw new Error();
+  }
 }
 
 export default App;
