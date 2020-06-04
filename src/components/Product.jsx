@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
+import { toast } from "react-toastify";
 import { getProduct } from "../resources/products";
 
 import placeholder from "../assets/img/placeholder.png";
 import "./product.css";
 
-function Product() {
+function Product({ addBag }) {
   const [product, setProduct] = useState({});
   const [selectedSize, setSelectedSize] = useState("");
   const { productname } = useParams();
@@ -15,6 +15,22 @@ function Product() {
     const data = getProduct(productname);
     setProduct(data);
   }, [productname]);
+
+  const addBagHandle = () => {
+    if (selectedSize === "") {
+      toast("Selecione um tamanho! :)", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      return;
+    }
+    addBag({ type: "add", payload: product });
+  };
 
   return (
     <div className="single-product">
@@ -70,7 +86,11 @@ function Product() {
           </div>
         </div>
         <div className="product__actions">
-          <button type="button" className="product__add-to-bag">
+          <button
+            type="button"
+            className="product__add-to-bag"
+            onClick={addBagHandle}
+          >
             Adicionar à Sacola
           </button>
         </div>

@@ -4,7 +4,7 @@ import { ReactComponent as SearchImg } from "../assets/img/search.svg";
 import { ReactComponent as ShoppingBagImg } from "../assets/img/shoppingbag.svg";
 import "./topbar.css";
 
-function Topbar() {
+function Topbar({ numberBag, toggleBag, toggleSearch }) {
   return (
     <header className="header">
       <div className="app__container">
@@ -13,13 +13,21 @@ function Topbar() {
             <Logo className="header__logo" />
           </a>
           <div className="header__icons">
-            <button type="button" className="header__icons--search">
+            <button
+              type="button"
+              className="header__icons--search"
+              onClick={toggleSearch}
+            >
               <SearchImg />
             </button>
-            <button type="button" className="header__icons--bag">
+            <button
+              type="button"
+              className="header__icons--bag"
+              onClick={toggleBag}
+            >
               <ShoppingBagImg />
               <sup className="counter">
-                <span className="counter__value">1</span>
+                <span className="counter__value">{numberBag}</span>
               </sup>
             </button>
           </div>
