@@ -14,16 +14,17 @@ import "./app.css";
 function App() {
   const [toggleBag, setToggleBag] = useState(false);
   const [toggleSearch, setToggleSearch] = useState(false);
-  const [bag, dispatch] = useReducer(reducer, []);
+  const [bag, dispatch] = useReducer(bagReducer, []);
 
   const toggleBagHandle = () => setToggleBag(!toggleBag);
   const toggleSearchHandle = () => setToggleSearch(!toggleSearch);
+  const numberBag = () => bag.reduce((total, item) => total + item.quantity, 0);
 
   return (
     <div className="app">
       <BrowserRouter>
         <Topbar
-          numberBag={bag.length}
+          numberBag={numberBag()}
           toggleBag={toggleBagHandle}
           toggleSearch={toggleSearchHandle}
         />
@@ -36,7 +37,12 @@ function App() {
           </Route>
         </Switch>
         {toggleBag && (
-          <Bag items={bag} toggle={toggleBagHandle} removeBagItem={dispatch} />
+          <Bag
+            items={bag}
+            quantity={numberBag()}
+            toggle={toggleBagHandle}
+            removeBagItem={dispatch}
+          />
         )}
         {toggleSearch && <Search toggle={toggleSearchHandle} />}
         <ToastContainer
@@ -55,15 +61,34 @@ function App() {
   );
 }
 
-function reducer(state, action) {
+function bagReducer(state, action) {
   switch (action.type) {
     case "add":
-      return [...state, action.payload];
+      let newProduct = true;
+      const list = state.map((p) => {
+        if (isEqualProduct(p, action.payload)) {
+          newProduct = false;
+          return { ...p, quantity: p.quantity + 1 };
+        }
+        return p;
+      });
+
+      if (newProduct) {
+        return [...state, action.payload];
+      }
+
+      return list;
     case "remove":
-      return state.filter((p) => p.name !== action.payload.name);
+      return state.filter((p) => {
+        return !isEqualProduct(p, action.payload);
+      });
     default:
       throw new Error();
   }
+}
+
+function isEqualProduct(product1, product2) {
+  return product1.name === product2.name && product1.size === product2.size;
 }
 
 export default App;
