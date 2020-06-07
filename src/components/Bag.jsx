@@ -5,7 +5,7 @@ import { ReactComponent as MinorImg } from "../assets/img/minor.svg";
 import { ReactComponent as PlusImg } from "../assets/img/plus.svg";
 import "./bag.css";
 
-function Bag({ toggle, items, removeBagItem }) {
+function Bag({ toggle, items, quantity, removeBagItem }) {
   const removeItem = (item) => {
     removeBagItem({ type: "remove", payload: item });
   };
@@ -24,15 +24,15 @@ function Bag({ toggle, items, removeBagItem }) {
                 <BackImg />
               </button>
             </div>
-            <div className="header__title">Sacola ({items.length})</div>
+            <div className="header__title">Sacola ({quantity})</div>
           </div>
         </div>
       </header>
       <div className="drawer__content">
         <div className="cart">
           <div className="product__list">
-            {items.map((product) => (
-              <div className="product__list__item">
+            {items.map((product, index) => (
+              <div className="product__list__item" key={index}>
                 <div className="product__list__row">
                   <figure className="product__image">
                     <img
@@ -50,7 +50,9 @@ function Bag({ toggle, items, removeBagItem }) {
                       <button type="button" className="cart__icons">
                         <MinorImg />
                       </button>
-                      <div className="product__list__input">1</div>
+                      <div className="product__list__input">
+                        {product.quantity}
+                      </div>
                       <button type="button" className="cart__icons">
                         <PlusImg />
                       </button>

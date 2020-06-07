@@ -29,7 +29,10 @@ function Product({ addBag }) {
       });
       return;
     }
-    addBag({ type: "add", payload: product });
+    addBag({
+      type: "add",
+      payload: { ...product, size: selectedSize, quantity: 1 },
+    });
   };
 
   return (
