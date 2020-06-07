@@ -35,7 +35,9 @@ function App() {
             <Product addBag={dispatch} />
           </Route>
         </Switch>
-        {toggleBag && <Bag items={bag} toggle={toggleBagHandle} />}
+        {toggleBag && (
+          <Bag items={bag} toggle={toggleBagHandle} removeBagItem={dispatch} />
+        )}
         {toggleSearch && <Search toggle={toggleSearchHandle} />}
         <ToastContainer
           position="top-right"
@@ -57,6 +59,8 @@ function reducer(state, action) {
   switch (action.type) {
     case "add":
       return [...state, action.payload];
+    case "remove":
+      return state.filter((p) => p.name !== action.payload.name);
     default:
       throw new Error();
   }

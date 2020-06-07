@@ -5,7 +5,11 @@ import { ReactComponent as MinorImg } from "../assets/img/minor.svg";
 import { ReactComponent as PlusImg } from "../assets/img/plus.svg";
 import "./bag.css";
 
-function Bag({ toggle, items }) {
+function Bag({ toggle, items, removeBagItem }) {
+  const removeItem = (item) => {
+    removeBagItem({ type: "remove", payload: item });
+  };
+
   return (
     <div className="drawer drawer--is-visible">
       <header className="header">
@@ -62,7 +66,11 @@ function Bag({ toggle, items }) {
                   </div>
                 </div>
                 <div className="product__row">
-                  <button type="button" className="cart__remove">
+                  <button
+                    type="button"
+                    className="cart__remove"
+                    onClick={() => removeItem(product)}
+                  >
                     Remover item
                   </button>
                 </div>
