@@ -5,9 +5,36 @@ import { ReactComponent as MinorImg } from "../assets/img/minor.svg";
 import { ReactComponent as PlusImg } from "../assets/img/plus.svg";
 import "./bag.css";
 
-function Bag({ toggle, items, quantity, removeBagItem, total }) {
+function Bag({
+  toggle,
+  items,
+  quantity,
+  removeBagItem,
+  total,
+  upQuantity,
+  downQuantity,
+}) {
   const removeItem = (item) => {
-    removeBagItem({ type: "remove", payload: item });
+    removeBagItem({ type: "removeAll", payload: item });
+  };
+
+  const up = (item) => {
+    upQuantity({
+      type: "add",
+      payload: item,
+    });
+  };
+
+  const down = (item) => {
+    const quantity = item.quantity - 1;
+    if (quantity <= 0) {
+      removeItem(item);
+      return;
+    }
+    downQuantity({
+      type: "remove",
+      payload: item,
+    });
   };
 
   return (
@@ -47,13 +74,21 @@ function Bag({ toggle, items, quantity, removeBagItem, total }) {
                       <span>Tam.: {product.size}</span>
                     </p>
                     <div className="product__list__quantity">
-                      <button type="button" className="cart__icons">
+                      <button
+                        type="button"
+                        className="cart__icons"
+                        onClick={() => down(product)}
+                      >
                         <MinorImg />
                       </button>
                       <div className="product__list__input">
                         {product.quantity}
                       </div>
-                      <button type="button" className="cart__icons">
+                      <button
+                        type="button"
+                        className="cart__icons"
+                        onClick={() => up(product)}
+                      >
                         <PlusImg />
                       </button>
                     </div>

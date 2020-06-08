@@ -40,6 +40,8 @@ function App() {
           <Bag
             items={bag}
             quantity={numberBag(bag)}
+            upQuantity={dispatch}
+            downQuantity={dispatch}
             total={totalBag(bag)}
             toggle={toggleBagHandle}
             removeBagItem={dispatch}
