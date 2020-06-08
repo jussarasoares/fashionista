@@ -16,6 +16,13 @@ export function bagReducer(state, action) {
 
       return list;
     case "remove":
+      return state.map((p) => {
+        if (isEqualProduct(p, action.payload)) {
+          return { ...p, quantity: p.quantity - 1 };
+        }
+        return p;
+      });
+    case "removeAll":
       return state.filter((p) => {
         return !isEqualProduct(p, action.payload);
       });
