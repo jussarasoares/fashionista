@@ -6,6 +6,7 @@ import Catalog from "./components/Catalog";
 import Product from "./components/Product";
 import Bag from "./components/Bag";
 import Search from "./components/Search";
+import { bagReducer, numberBag, totalBag } from "./resources/bag";
 
 import "./assets/css/normalize.css";
 import "react-toastify/dist/ReactToastify.css";
@@ -18,13 +19,12 @@ function App() {
 
   const toggleBagHandle = () => setToggleBag(!toggleBag);
   const toggleSearchHandle = () => setToggleSearch(!toggleSearch);
-  const numberBag = () => bag.reduce((total, item) => total + item.quantity, 0);
 
   return (
     <div className="app">
       <BrowserRouter>
         <Topbar
-          numberBag={numberBag()}
+          numberBag={numberBag(bag)}
           toggleBag={toggleBagHandle}
           toggleSearch={toggleSearchHandle}
         />
@@ -39,7 +39,8 @@ function App() {
         {toggleBag && (
           <Bag
             items={bag}
-            quantity={numberBag()}
+            quantity={numberBag(bag)}
+            total={totalBag(bag)}
             toggle={toggleBagHandle}
             removeBagItem={dispatch}
           />
@@ -59,36 +60,6 @@ function App() {
       </BrowserRouter>
     </div>
   );
-}
-
-function bagReducer(state, action) {
-  switch (action.type) {
-    case "add":
-      let newProduct = true;
-      const list = state.map((p) => {
-        if (isEqualProduct(p, action.payload)) {
-          newProduct = false;
-          return { ...p, quantity: p.quantity + 1 };
-        }
-        return p;
-      });
-
-      if (newProduct) {
-        return [...state, action.payload];
-      }
-
-      return list;
-    case "remove":
-      return state.filter((p) => {
-        return !isEqualProduct(p, action.payload);
-      });
-    default:
-      throw new Error();
-  }
-}
-
-function isEqualProduct(product1, product2) {
-  return product1.name === product2.name && product1.size === product2.size;
 }
 
 export default App;

@@ -5,7 +5,7 @@ import { ReactComponent as MinorImg } from "../assets/img/minor.svg";
 import { ReactComponent as PlusImg } from "../assets/img/plus.svg";
 import "./bag.css";
 
-function Bag({ toggle, items, quantity, removeBagItem }) {
+function Bag({ toggle, items, quantity, removeBagItem, total }) {
   const removeItem = (item) => {
     removeBagItem({ type: "remove", payload: item });
   };
@@ -60,7 +60,7 @@ function Bag({ toggle, items, quantity, removeBagItem }) {
                   </div>
                   <div className="product__list__pricing">
                     <div className="product__list__current">
-                      {product.regular_price}
+                      {product.actual_price}
                     </div>
                     <div className="product__list__installments">
                       {product.installments}
@@ -80,7 +80,9 @@ function Bag({ toggle, items, quantity, removeBagItem }) {
             ))}
           </div>
           <div className="cart__subtotal">
-            <div className="header__title">Subtotal - R$ 199,90</div>
+            <div className="header__title">
+              Subtotal - R$ {total.toFixed(2).replace(".", ",")}
+            </div>
           </div>
         </div>
       </div>
