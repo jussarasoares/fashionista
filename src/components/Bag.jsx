@@ -68,6 +68,7 @@ function Bag({
                       title={product.name}
                     />
                   </figure>
+
                   <div className="product__list__info">
                     <p className="product__list__name">{product.name}</p>
                     <p className="product__list__size">

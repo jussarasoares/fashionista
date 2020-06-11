@@ -19,9 +19,10 @@ function App() {
 
   const toggleBagHandle = () => setToggleBag(!toggleBag);
   const toggleSearchHandle = () => setToggleSearch(!toggleSearch);
+  const drawerOpen = toggleBag || toggleSearch ? "app--is-drawer-visible" : "";
 
   return (
-    <div className="app">
+    <div className={`app ${drawerOpen}`}>
       <BrowserRouter>
         <Topbar
           numberBag={numberBag(bag)}
