@@ -115,10 +115,14 @@ function Bag({
               </div>
             ))}
           </div>
-          <div className="cart__subtotal">
-            <div className="header__title">
-              Subtotal - R$ {total.toFixed(2).replace(".", ",")}
+          <div className="bag__footer">
+            <div className="bag__footer-title">
+              <span>Total=</span>
+              <span>R$ {total.toFixed(2).replace(".", ",")}</span>
             </div>
+            <button type="button" className="bag__checkout">
+              Finalizar Compra
+            </button>
           </div>
         </div>
       </div>
