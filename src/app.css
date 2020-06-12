@@ -1,16 +1,8 @@
+@import "./color.css";
+
 @font-face {
   font-family: "Noto Sans SC";
   src: url(./assets/font/NotoSansSC-Regular.otf);
-}
-
-:root {
-  --pink: #ff1493;
-  --purple: #8a2be2;
-  --red: #b03060;
-  --dark: #000000;
-  --lightgrey: #eeeeee;
-  --grey: #696969;
-  --light: #ffffff;
 }
 
 *,
@@ -48,4 +40,25 @@ a:hover {
   position: relative;
   padding-top: 5.5rem;
   width: 100%;
+}
+
+.app.app--is-drawer-visible {
+  overflow: hidden;
+  transition: opacity 225ms;
+  transition-timing-function: cubic-bezier(bezier(0.4, 0, 0.2, 1));
+}
+
+.app.app--is-drawer-visible:before {
+  backface-visibility: visible;
+  background: radial-gradient(ellipse at center, #7a7a7a 0, #000 100%);
+  bottom: 0;
+  content: "";
+  height: 100vh;
+  opacity: 0.75;
+  pointer-events: all;
+  position: fixed;
+  right: 0;
+  visibility: visible;
+  width: 100vw;
+  z-index: 15;
 }

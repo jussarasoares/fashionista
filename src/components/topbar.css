@@ -1,13 +1,4 @@
-@import "../app.css";
-
-.app__container {
-  display: block;
-  margin: 0 auto;
-  padding-left: 1.6rem;
-  padding-right: 1.6rem;
-  position: relative;
-  width: 100%;
-}
+@import "../color.css";
 
 .header {
   backface-visibility: hidden;
@@ -22,6 +13,20 @@
   box-shadow: 0 0 1rem 0 rgba(226, 157, 210, 0.02);
 }
 
+.app__container {
+  display: block;
+  margin: 0 auto;
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+  position: relative;
+  width: 100%;
+}
+
+.header__default {
+  justify-content: space-between;
+  background-color: var(--light);
+}
+
 .header__context,
 .header__default {
   padding-top: 1.25rem;
@@ -30,15 +35,11 @@
   display: flex;
 }
 
-.header__default {
-  justify-content: center;
-  background-color: var(--light);
-}
-
 .logo {
   font-size: 1.2em;
-  color: var(--pink);
+  color: var(--brown);
   margin: 0;
+  font-weight: bold;
 }
 
 .header__icons {
@@ -67,7 +68,7 @@
 }
 
 .header__icons--search {
-  margin-right: auto;
+  margin-right: 1.5rem;
 }
 
 .header__icons--back img {
@@ -87,7 +88,7 @@
   height: 1.7rem;
   border-radius: 50%;
   width: 1.7rem;
-  background: var(--dark);
+  background: var(--brown);
   color: var(--light);
   line-height: 1.7rem;
   text-align: center;

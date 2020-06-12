@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import { ReactComponent as Logo } from "../assets/img/logo.svg";
+
 import { ReactComponent as SearchImg } from "../assets/img/search.svg";
 import { ReactComponent as ShoppingBagImg } from "../assets/img/shoppingbag.svg";
 import "./topbar.css";
@@ -11,7 +11,7 @@ function Topbar({ numberBag, toggleBag, toggleSearch }) {
       <div className="app__container">
         <div className="header__default">
           <Link to="/">
-            <h1 className="logo">Fashionista</h1>
+            <h1 className="logo">FASHIONISTA</h1>
           </Link>
           <div className="header__icons">
             <button
