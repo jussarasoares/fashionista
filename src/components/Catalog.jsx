@@ -19,7 +19,9 @@ function Catalog() {
       <header className="banner"></header>
       <section className="products">
         <div className="app__container">
-          <div className="header__title">{products.length} items</div>
+          <div className="header__title">
+            Moda Feminina ({products.length} items)
+          </div>
           <div className="products__grid">
             {products.map((product, index) => (
               <div className="products__box" key={index}>
@@ -36,6 +38,7 @@ function Catalog() {
                       title={product.name}
                       className="product__placeholder"
                     />
+                    <button class="product__btn-details">Comprar</button>
                   </figure>
                   <h3 className="product__name">{product.name}</h3>
                   <div className="product__pricing">

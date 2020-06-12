@@ -117,7 +117,7 @@ function Bag({
           </div>
           <div className="bag__footer">
             <div className="bag__footer-title">
-              <span>Total=</span>
+              <span>Total</span>
               <span>R$ {total.toFixed(2).replace(".", ",")}</span>
             </div>
             <button type="button" className="bag__checkout">
