@@ -109,7 +109,7 @@ function Bag({
                     className="cart__remove"
                     onClick={() => removeItem(product)}
                   >
-                    Remover item
+                    Remover da Sacola
                   </button>
                 </div>
               </div>

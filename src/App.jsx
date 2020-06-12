@@ -6,6 +6,7 @@ import Catalog from "./components/Catalog";
 import Product from "./components/Product";
 import Bag from "./components/Bag";
 import Search from "./components/Search";
+import Footer from "./components/Footer";
 import { bagReducer, numberBag, totalBag } from "./resources/bag";
 
 import "./assets/css/normalize.css";
@@ -60,6 +61,7 @@ function App() {
           draggable
           pauseOnHover
         />
+        <Footer />
       </BrowserRouter>
     </div>
   );
