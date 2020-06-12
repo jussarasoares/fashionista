@@ -1,31 +1,31 @@
-import React, { useState, useReducer } from "react";
-import { Route, Switch, BrowserRouter } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
-import Topbar from "./components/Topbar";
-import Catalog from "./components/Catalog";
-import Product from "./components/Product";
-import Bag from "./components/Bag";
-import Search from "./components/Search";
-import { bagReducer, numberBag, totalBag } from "./resources/bag";
+import React, { useState } from 'react';
+import { Route, Switch, BrowserRouter } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import Topbar from './components/Topbar';
+import Catalog from './components/Catalog';
+import Product from './components/Product';
+import Bag from './components/Bag';
+import Search from './components/Search';
+// import { bagReducer, numberBag, totalBag } from './resources/bag';
 
-import "./assets/css/normalize.css";
-import "react-toastify/dist/ReactToastify.css";
-import "./app.css";
+import './assets/css/normalize.css';
+import 'react-toastify/dist/ReactToastify.css';
+import './app.css';
 
 function App() {
   const [toggleBag, setToggleBag] = useState(false);
   const [toggleSearch, setToggleSearch] = useState(false);
-  const [bag, dispatch] = useReducer(bagReducer, []);
+  // const [bag, dispatch] = useReducer(bagReducer, []);
 
   const toggleBagHandle = () => setToggleBag(!toggleBag);
   const toggleSearchHandle = () => setToggleSearch(!toggleSearch);
-  const drawerOpen = toggleBag || toggleSearch ? "app--is-drawer-visible" : "";
+  const drawerOpen = toggleBag || toggleSearch ? 'app--is-drawer-visible' : '';
 
   return (
     <div className={`app ${drawerOpen}`}>
       <BrowserRouter>
         <Topbar
-          numberBag={numberBag(bag)}
+          // numberBag={numberBag(bag)}
           toggleBag={toggleBagHandle}
           toggleSearch={toggleSearchHandle}
         />
@@ -34,18 +34,18 @@ function App() {
             <Catalog />
           </Route>
           <Route path="/produto/:productname">
-            <Product addBag={dispatch} />
+            <Product />
           </Route>
         </Switch>
         {toggleBag && (
           <Bag
-            items={bag}
-            quantity={numberBag(bag)}
-            upQuantity={dispatch}
-            downQuantity={dispatch}
-            total={totalBag(bag)}
+            // items={bag}
+            // quantity={numberBag(bag)}
+            // upQuantity={dispatch}
+            // downQuantity={dispatch}
+            // total={totalBag(bag)}
             toggle={toggleBagHandle}
-            removeBagItem={dispatch}
+            // removeBagItem={dispatch}
           />
         )}
         {toggleSearch && <Search toggle={toggleSearchHandle} />}

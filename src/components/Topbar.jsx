@@ -1,11 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-import { ReactComponent as SearchImg } from "../assets/img/search.svg";
-import { ReactComponent as ShoppingBagImg } from "../assets/img/shoppingbag.svg";
-import "./topbar.css";
+import { ReactComponent as SearchImg } from '../assets/img/search.svg';
+import { ReactComponent as ShoppingBagImg } from '../assets/img/shoppingbag.svg';
+import './topbar.css';
 
-function Topbar({ numberBag, toggleBag, toggleSearch }) {
+function Topbar({ toggleBag, toggleSearch }) {
+  const bagQuantity = useSelector((state) => state.bag.quantity);
   return (
     <header className="header">
       <div className="app__container">
@@ -28,7 +30,7 @@ function Topbar({ numberBag, toggleBag, toggleSearch }) {
             >
               <ShoppingBagImg />
               <sup className="counter">
-                <span className="counter__value">{numberBag}</span>
+                <span className="counter__value">{bagQuantity}</span>
               </sup>
             </button>
           </div>
