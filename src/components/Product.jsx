@@ -17,6 +17,7 @@ function Product() {
   useEffect(() => {
     const data = getProduct(productname);
     setProduct(data);
+    setSelectedSize('');
   }, [productname]);
 
   const addBagHandle = () => {

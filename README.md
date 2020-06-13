@@ -4,7 +4,7 @@ badges
 
 Descriçao
 
-GIF
+![Preview](/docs/preview.gif)
 
 ## Install
 
