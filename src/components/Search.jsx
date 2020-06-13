@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import { findProductsByName } from "../resources/products";
-import { Link } from "react-router-dom";
-import { ReactComponent as BackImg } from "../assets/img/back.svg";
-import "./search.css";
+import { findProductsByName } from '../resources/products';
+import { Link } from 'react-router-dom';
+import { ReactComponent as BackImg } from '../assets/img/back.svg';
+import './search.css';
 
 function Search({ toggle }) {
   const [products, setProducts] = useState([]);
@@ -47,10 +47,13 @@ function Search({ toggle }) {
           <div className="header__title">{products.length} items</div>
           <div className="product__list">
             {!products.length && (
-              <span class="cart__empty">Nenhum item encontrado :\</span>
+              <span class="bag__empty">Nenhum item encontrado :\</span>
             )}
             {products.map((product) => (
-              <Link to={`/produto/${product.name.toLowerCase()}`}>
+              <Link
+                to={`/produto/${product.name.toLowerCase()}`}
+                onClick={toggle}
+              >
                 <div className="product__list__item">
                   <div className="product__list__row">
                     <figure className="product__image">

@@ -1,22 +1,30 @@
-import React, { useEffect, useState } from "react";
-import "./catalog.css";
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { getProducts } from '../resources/products';
+import { listProductsAction } from '../store/productAction';
 
-import { getProducts } from "../resources/products";
-import placeholder from "../assets/img/placeholder.png";
-import { Link } from "react-router-dom";
+import placeholder from '../assets/img/placeholder.png';
+import './catalog.css';
 
 function Catalog() {
-  const [products, setProducts] = useState([]);
+  const products = useSelector((state) => state.products.data);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     getProducts().then((data) => {
-      setProducts(data);
+      dispatch(listProductsAction(data));
     });
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
-      <header className="banner"></header>
+      <header className="banner">
+        <div className="banner__title">
+          <h3>O melhor da moda sustentável.</h3>
+          <h1>50% OFF</h1>
+        </div>
+      </header>
       <section className="products">
         <div className="app__container">
           <div className="header__title">

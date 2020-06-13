@@ -1,15 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { toast } from "react-toastify";
-import { getProduct } from "../resources/products";
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
+import { getProduct } from '../resources/products';
+import { addItemBagAction } from '../store/bagAction';
 
-import placeholder from "../assets/img/placeholder.png";
-import "./product.css";
+import placeholder from '../assets/img/placeholder.png';
+import './product.css';
 
-function Product({ addBag }) {
+function Product() {
   const [product, setProduct] = useState({});
-  const [selectedSize, setSelectedSize] = useState("");
+  const [selectedSize, setSelectedSize] = useState('');
   const { productname } = useParams();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const data = getProduct(productname);
@@ -17,9 +20,9 @@ function Product({ addBag }) {
   }, [productname]);
 
   const addBagHandle = () => {
-    if (selectedSize === "") {
-      toast("Selecione um tamanho! :)", {
-        position: "top-right",
+    if (selectedSize === '') {
+      toast('Selecione um tamanho! :)', {
+        position: 'top-right',
         autoClose: 5000,
         hideProgressBar: true,
         closeOnClick: true,
@@ -29,10 +32,7 @@ function Product({ addBag }) {
       });
       return;
     }
-    addBag({
-      type: "add",
-      payload: { ...product, size: selectedSize, quantity: 1 },
-    });
+    dispatch(addItemBagAction({ ...product, size: selectedSize, quantity: 1 }));
   };
 
   return (
@@ -105,8 +105,8 @@ function Product({ addBag }) {
 function ButtonSize({ label, selected, onClick }) {
   const buttonClass =
     selected === label
-      ? "product__filter product__filter--selected"
-      : "product__filter";
+      ? 'product__filter product__filter--selected'
+      : 'product__filter';
 
   return (
     <button type="button" className={buttonClass} onClick={onClick}>
