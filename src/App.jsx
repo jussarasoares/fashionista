@@ -6,7 +6,7 @@ import Catalog from './components/Catalog';
 import Product from './components/Product';
 import Bag from './components/Bag';
 import Search from './components/Search';
-// import { bagReducer, numberBag, totalBag } from './resources/bag';
+import Footer from './components/Footer';
 
 import './assets/css/normalize.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -60,6 +60,7 @@ function App() {
           draggable
           pauseOnHover
         />
+        <Footer />
       </BrowserRouter>
     </div>
   );

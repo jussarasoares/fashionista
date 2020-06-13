@@ -41,7 +41,7 @@ function Catalog() {
                       title={product.name}
                       className="product__placeholder"
                     />
-                    <button class="product__btn-details">Comprar</button>
+                    <button class="product__btn-details">Detalhes</button>
                   </figure>
                   <h3 className="product__name">{product.name}</h3>
                   <div className="product__pricing">

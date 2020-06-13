@@ -1,0 +1,50 @@
+@import "../app.css";
+
+.footer {
+  background-color: var(--peach);
+  color: var(--brown);
+  padding: 20px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer_title {
+  font-weight: 300;
+  color: var(--grey);
+  margin: 10px;
+}
+
+.footer_logo {
+  display: block;
+  font-size: 1.17em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+.footer-list {
+  margin: 0;
+  display: flex;
+}
+
+.footer-list-item {
+  font-size: 1.7em;
+  margin: 0 10px;
+  fill: var(--dark);
+}
+
+.icon-github a:hover {
+  fill: var(--coral);
+}
+
+.icon-linkedin a:hover .cls-1 {
+  fill: var(--coral);
+}
