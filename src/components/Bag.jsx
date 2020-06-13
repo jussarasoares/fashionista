@@ -1,38 +1,37 @@
-import React from "react";
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
-import { ReactComponent as BackImg } from "../assets/img/back.svg";
-import { ReactComponent as MinorImg } from "../assets/img/minor.svg";
-import { ReactComponent as PlusImg } from "../assets/img/plus.svg";
-import "./bag.css";
+import { totalBag } from '../resources/bag';
+import { ReactComponent as BackImg } from '../assets/img/back.svg';
+import { ReactComponent as MinorImg } from '../assets/img/minor.svg';
+import { ReactComponent as PlusImg } from '../assets/img/plus.svg';
+import './bag.css';
 
-function Bag({
-  toggle,
-  items,
-  quantity,
-  removeBagItem,
-  total,
-  upQuantity,
-  downQuantity,
-}) {
+function Bag({ toggle }) {
+  const items = useSelector((state) => state.bag.data);
+  const quantity = useSelector((state) => state.bag.quantity);
+  const total = totalBag(items);
+  const dispatch = useDispatch();
+
   const removeItem = (item) => {
-    removeBagItem({ type: "removeAll", payload: item });
+    dispatch({ type: 'REMOVE_FULL_ITEM_BAG', payload: item });
   };
 
   const up = (item) => {
-    upQuantity({
-      type: "add",
+    dispatch({
+      type: 'ADD_ITEM_BAG',
       payload: item,
     });
   };
 
   const down = (item) => {
-    const quantity = item.quantity - 1;
-    if (quantity <= 0) {
+    const qty = item.quantity - 1;
+    if (qty <= 0) {
       removeItem(item);
       return;
     }
-    downQuantity({
-      type: "remove",
+    dispatch({
+      type: 'REMOVE_ITEM_BAG',
       payload: item,
     });
   };
@@ -56,7 +55,7 @@ function Bag({
         </div>
       </header>
       <div className="drawer__content">
-        <div className="cart">
+        <div className="bag">
           <div className="product__list">
             {items.map((product, index) => (
               <div className="product__list__item" key={index}>
@@ -77,7 +76,7 @@ function Bag({
                     <div className="product__list__quantity">
                       <button
                         type="button"
-                        className="cart__icons"
+                        className="bag__icons"
                         onClick={() => down(product)}
                       >
                         <MinorImg />
@@ -87,7 +86,7 @@ function Bag({
                       </div>
                       <button
                         type="button"
-                        className="cart__icons"
+                        className="bag__icons"
                         onClick={() => up(product)}
                       >
                         <PlusImg />
@@ -106,7 +105,7 @@ function Bag({
                 <div className="product__row">
                   <button
                     type="button"
-                    className="cart__remove"
+                    className="bag__remove"
                     onClick={() => removeItem(product)}
                   >
                     Remover da Sacola
@@ -118,7 +117,7 @@ function Bag({
           <div className="bag__footer">
             <div className="bag__footer-title">
               <span>Total</span>
-              <span>R$ {total.toFixed(2).replace(".", ",")}</span>
+              <span>R$ {total.toFixed(2).replace('.', ',')}</span>
             </div>
             <button type="button" className="bag__checkout">
               Finalizar Compra

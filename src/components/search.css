@@ -1,4 +1,4 @@
-@import "../color.css";
+@import '../color.css';
 
 .drawer {
   -webkit-backface-visibility: hidden;
@@ -142,7 +142,7 @@
   padding-right: 1.6rem;
 }
 
-.cart__empty {
+.bag__empty {
   position: absolute;
   top: 50%;
   margin: 0 auto;
@@ -150,8 +150,8 @@
   transform: translate3d(0, -50%, 0);
 }
 
-.cart__empty,
-.cart__subtotal {
+.bag__empty,
+.bag__subtotal {
   text-align: center;
   left: 0;
   width: 100%;

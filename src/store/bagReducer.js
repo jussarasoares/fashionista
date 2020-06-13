@@ -1,5 +1,5 @@
 const INITIAL_BAG = {
-  bag: [],
+  data: [],
   quantity: 0,
 };
 
@@ -7,7 +7,7 @@ function bag(state = INITIAL_BAG, action) {
   switch (action.type) {
     case 'ADD_ITEM_BAG':
       let newProduct = true;
-      const list = state.bag.map((p) => {
+      const list = state.data.map((p) => {
         if (isEqualProduct(p, action.payload)) {
           newProduct = false;
           return { ...p, quantity: p.quantity + 1 };
@@ -18,31 +18,31 @@ function bag(state = INITIAL_BAG, action) {
       if (newProduct) {
         return {
           ...state,
-          bag: [...state.bag, action.payload],
-          quantity: counterBag([...state.bag, action.payload]),
+          data: [...state.data, action.payload],
+          quantity: counterBag([...state.data, action.payload]),
         };
       }
 
       return {
         ...state,
-        bag: list,
+        data: list,
         quantity: counterBag(list),
       };
     case 'REMOVE_ITEM_BAG':
-      const newBag = state.bag.map((p) => {
+      const newBag = state.data.map((p) => {
         if (isEqualProduct(p, action.payload)) {
           return { ...p, quantity: p.quantity - 1 };
         }
         return p;
       });
 
-      return { ...state, bag: newBag, quantity: counterBag(newBag) };
+      return { ...state, data: newBag, quantity: counterBag(newBag) };
     case 'REMOVE_FULL_ITEM_BAG':
-      const newList = state.bag.filter((p) => {
+      const newList = state.data.filter((p) => {
         return !isEqualProduct(p, action.payload);
       });
 
-      return { ...state, newList, quantity: counterBag(newList) };
+      return { ...state, data: newList, quantity: counterBag(newList) };
     default:
       return state;
   }

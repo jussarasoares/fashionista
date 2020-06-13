@@ -1,4 +1,4 @@
-@import "../app.css";
+@import '../app.css';
 
 .footer {
   background-color: var(--peach);
@@ -12,6 +12,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-left: 30px;
+  margin-right: 30px;
 }
 
 .footer_title {

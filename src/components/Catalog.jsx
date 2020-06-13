@@ -19,7 +19,12 @@ function Catalog() {
 
   return (
     <>
-      <header className="banner"></header>
+      <header className="banner">
+        <div className="banner__title">
+          <h3>O melhor da moda sustentável.</h3>
+          <h1>50% OFF</h1>
+        </div>
+      </header>
       <section className="products">
         <div className="app__container">
           <div className="header__title">

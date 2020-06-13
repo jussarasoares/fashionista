@@ -1,4 +1,4 @@
-@import "../color.css";
+@import '../color.css';
 
 .banner {
   background-attachment: fixed;
@@ -13,6 +13,12 @@
   padding: 20px;
   position: relative;
   width: 100%;
+}
+
+.banner__title {
+  font-size: 2.5em;
+  color: var(--orange);
+  text-shadow: var(--dark) 2px 2px;
 }
 
 .products {

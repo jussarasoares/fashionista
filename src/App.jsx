@@ -7,6 +7,7 @@ import Product from './components/Product';
 import Bag from './components/Bag';
 import Search from './components/Search';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 
 import './assets/css/normalize.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -15,7 +16,6 @@ import './app.css';
 function App() {
   const [toggleBag, setToggleBag] = useState(false);
   const [toggleSearch, setToggleSearch] = useState(false);
-  // const [bag, dispatch] = useReducer(bagReducer, []);
 
   const toggleBagHandle = () => setToggleBag(!toggleBag);
   const toggleSearchHandle = () => setToggleSearch(!toggleSearch);
@@ -24,11 +24,8 @@ function App() {
   return (
     <div className={`app ${drawerOpen}`}>
       <BrowserRouter>
-        <Topbar
-          // numberBag={numberBag(bag)}
-          toggleBag={toggleBagHandle}
-          toggleSearch={toggleSearchHandle}
-        />
+        <ScrollToTop />
+        <Topbar toggleBag={toggleBagHandle} toggleSearch={toggleSearchHandle} />
         <Switch>
           <Route exact path="/">
             <Catalog />
@@ -37,17 +34,7 @@ function App() {
             <Product />
           </Route>
         </Switch>
-        {toggleBag && (
-          <Bag
-            // items={bag}
-            // quantity={numberBag(bag)}
-            // upQuantity={dispatch}
-            // downQuantity={dispatch}
-            // total={totalBag(bag)}
-            toggle={toggleBagHandle}
-            // removeBagItem={dispatch}
-          />
-        )}
+        {toggleBag && <Bag toggle={toggleBagHandle} />}
         {toggleSearch && <Search toggle={toggleSearchHandle} />}
         <ToastContainer
           position="top-right"

@@ -29,9 +29,11 @@ function Topbar({ toggleBag, toggleSearch }) {
               onClick={toggleBag}
             >
               <ShoppingBagImg />
-              <sup className="counter">
-                <span className="counter__value">{bagQuantity}</span>
-              </sup>
+              {bagQuantity > 0 && (
+                <sup className="counter">
+                  <span className="counter__value">{bagQuantity}</span>
+                </sup>
+              )}
             </button>
           </div>
         </div>
