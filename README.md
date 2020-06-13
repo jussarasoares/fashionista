@@ -1,11 +1,6 @@
 # Fashionista
 
-<img src="https://img.shields.io/badge/React-green" />
-<img src="https://img.shields.io/badge/Redux-black" />
-<img src="https://img.shields.io/badge/React-Hooks-blue" />
-<img src="https://img.shields.io/badge/-JavaScript-purple" />
-<img src="https://img.shields.io/badge/-HTML5-red" />
-<img src="https://img.shields.io/badge/-BEM%20CSS-yellow" />
+![](https://img.shields.io/badge/React-green) ![](https://img.shields.io/badge/Redux-black) ![](https://img.shields.io/badge/React-Hooks-blue) ![](https://img.shields.io/badge/-JavaScript-purple) ![](https://img.shields.io/badge/-HTML5-red) ![](https://img.shields.io/badge/-BEM%20CSS-yellow) [![Netlify Status](https://api.netlify.com/api/v1/badges/5b4996e7-a6e2-4350-bad6-2efe0009cc83/deploy-status)](https://app.netlify.com/sites/fashionista-jussara/deploys)
 
 ## Descrição
 
